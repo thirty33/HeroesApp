@@ -1,0 +1,7 @@
+.hero-item {
+    list-style: none;
+}
+
+.selected {
+    background-color: lightblue;
+}
