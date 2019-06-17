@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
+import { DetailComponent } from './components/detail/detail.component';
 import { NavigatorComponent } from './components/navigator/navigator.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -13,7 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     HeroesComponent,
     NavigatorComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    DetailComponent,
   ],
   imports: [
     BrowserModule,
