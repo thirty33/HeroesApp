@@ -1,4 +1,5 @@
 import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Hero } from '../../classes/hero';
 import { Heroes } from '../../heroes';
@@ -23,11 +24,37 @@ export class HeroService {
 	getHeroes(): Observable<Hero[]> {
 		this.messagesService.add('Hero-services: fetched hero');
 		// return of(Heroes);
-		return this.http.get<Hero[]>(this.heroesUrl);
+		return this.http.get<Hero[]>(this.heroesUrl)
+			.pipe(
+				tap(_ => this.log('fetched heroes')),
+				catchError(this.handleError<Hero[]>('getHeroes', []))
+			);
+	}
+
+	getHero(id: number): Observable<Hero> {
+		const url = `${this.heroesUrl}/${id}`;
+		return this.http.get<Hero>(url)
+			.pipe(
+				tap(_ => this.log(`fetched hero id=${id}`)),
+				catchError(this.handleError<Hero>(`getHero id=${id}`))
+		);
 	}
 
 	private log(message: string) {
 		this.messagesService.add(`HeroService: ${message}`);
-		
+	}
+
+	private handleError<T> (operation = 'operation', result?: T) {
+		return (error: any): Observable<T> => {
+ 
+			// TODO: send the error to remote logging infrastructure
+			console.error(error); // log to console instead
+	 
+			// TODO: better job of transforming error for user consumption
+			this.log(`${operation} failed: ${error.message}`);
+	 
+			// Let the app keep running by returning an empty result.
+			return of(result as T);
+		}
 	}
 }
