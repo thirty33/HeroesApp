@@ -20,6 +20,7 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
+
   getHeroes() : void {
     this.heroService.getHeroes()
       .subscribe(heroes => this.heroes = heroes);
@@ -40,6 +41,8 @@ export class HeroesComponent implements OnInit {
 
   delete(hero: Hero) {
     this.heroService.deleteHero(hero)
-      .subscribe(() => {this.getHeroes()});
+      .subscribe(() => {
+        this.getHeroes();
+      });
   }
 }

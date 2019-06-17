@@ -10,6 +10,7 @@ import { HeroDetailComponent } from './components/hero-detail/hero-detail.compon
 import { DetailComponent } from './components/detail/detail.component';
 import { NavigatorComponent } from './components/navigator/navigator.component';
 import { MessagesComponent } from './components/messages/messages.component';
+import { HeroSearchComponent } from './components/hero-search/hero-search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InMemoryDataService }  from './services/in-memory-data/in-memory-data.services';
 
@@ -20,7 +21,8 @@ import { InMemoryDataService }  from './services/in-memory-data/in-memory-data.s
     NavigatorComponent,
     HeroDetailComponent,
     DetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    HeroSearchComponent
   ],
   imports: [
     BrowserModule,
