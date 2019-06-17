@@ -8,6 +8,14 @@
         </li>
     </ul>
 
+    <div class="add-new-hero">
+        <label>
+            <input #heroName />
+        </label>
+        <button (click)="add(heroName.value); heroName.value=''">
+            Add a new hero
+        </button>
+    </div>
     <!-- <div class="selected-hero" *ngIf="selectedHero">
         <h2>{{selectedHero.name | uppercase}} Details</h2>
         <div><span>id: </span>{{selectedHero.id}}</div>

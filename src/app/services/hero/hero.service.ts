@@ -18,7 +18,7 @@ export class HeroService {
 	private heroesUrl = 'api/heroes';
 	
 	//service in service
-	constructor(
+	constructor (
 		private messagesService : MessagesService,
 		private http: HttpClient) {
 
@@ -34,6 +34,7 @@ export class HeroService {
 			);
 	}
 
+	//Get
 	getHero(id: number): Observable<Hero> {
 		const url = `${this.heroesUrl}/${id}`;
 		return this.http.get<Hero>(url)
@@ -43,11 +44,21 @@ export class HeroService {
 		);
 	}
 
+	//Put
 	updateHero (hero: Hero): Observable<any> {
 		return this.http.put(this.heroesUrl, hero, httpOptions)
 			.pipe(
 				tap(_ => this.log(`updated hero id=${hero.id}`)),
 				catchError(this.handleError<any>('updateHero'))
+			);
+	}
+
+	//Post
+	addHero (hero: Hero): Observable<Hero> {
+		return this.http.post<Hero>(this.heroesUrl, hero, httpOptions)
+			.pipe(
+				tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
+				catchError(this.handleError<Hero>('addHero'))
 			);
 	}
 
