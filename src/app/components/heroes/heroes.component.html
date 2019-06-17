@@ -5,6 +5,7 @@
             class="hero-item"
             [class.selected] = "hero === selectedHero">
             <span>{{hero.id}}</span> <a [routerLink]="['/hero', heroId]">{{hero.name}}</a>
+            <button (click)="delete(hero)"> x </button>
         </li>
     </ul>
 
