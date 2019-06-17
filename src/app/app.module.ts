@@ -7,6 +7,7 @@ import { HeroesComponent } from './components/heroes/heroes.component';
 import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { NavigatorComponent } from './components/navigator/navigator.component';
+import { MessagesComponent } from './components/messages/messages.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavigatorComponent,
     HeroDetailComponent,
     DetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
