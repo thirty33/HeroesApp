@@ -1,14 +1,14 @@
 .main-div {
-    background-color: aqua;
+    background-color: grey;
     display: grid;
     grid-template-columns: 2fr 6fr;
     height: 100vh;
 }
 
 .navigator-div {
-    background-color: purple;
+    background-color: aqua;
 }
 
 .navigator-div {
-    background-color: yellow;
+    background-color: lightblue;
 }
